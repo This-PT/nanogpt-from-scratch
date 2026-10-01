@@ -50,7 +50,7 @@ class Head(nn.Module):
         wei = q@k.transpose(-2,-1)*C**-0.5
         wei = wei.masked_fill(self.tril[:T,:T] == 0,float('-inf'))
         wei = F.softmax(wei,dim=-1)
-        sei = self.dropout(wei)
+        wei = self.dropout(wei)
 
         v = self.value(x)
         out = wei@v
@@ -142,7 +142,7 @@ class BigramLanguageModel(nn.Module):
         return idx
 
 def get_batch(split):
-    d = df_train if split == 'train ' else df_val
+    d = df_train if split == 'train' else df_val
     xi =  torch.randint(len(d)-block_size , (batch_size,))
     x = torch.stack([d[i:i+block_size]for i in xi])
     y = torch.stack([d[i+1:i+block_size+1]for i in xi])
