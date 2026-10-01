@@ -31,7 +31,7 @@ It prints train/val loss every 100 steps, then generates 2,000 characters of Sha
 
 ![alt text](image.png)
 
-Final loss after 5,000 steps:  train loss **1.6870***, val loss **1.8389**
+Final loss after 5,000 steps:  train loss **1.6870**, val loss **1.8389**
 The output is not readable yet, but it has learned the structure of the text: speaker names, line breaks, and word-like spelling. This is expected for a model this small 
 
 
